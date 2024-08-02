@@ -1,0 +1,13 @@
+ {% extends "main.html" %}
+{% block content %}
+<div class="card-body">
+  <h5>Delete Book</h5>
+  <p>Are you sure you want to delete the book "{{ book.title }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <a type="button" class="btn btn-secondary" href="{% url 'app:book' %}">Cancel</a>
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</div>
+{% endblock %} 
